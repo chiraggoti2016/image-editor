@@ -38,6 +38,10 @@ export function hexToRgb(hex) {
 }
 
 export function drawImageFromWebUrl(canvas, sourceurl) {
+    const context = canvas.getContext('2d');
+
+    context.clearRect(0, 0, canvas.width, canvas.height);
+
     var image = new ImageHelper();
 
     image.load(sourceurl, function () {
