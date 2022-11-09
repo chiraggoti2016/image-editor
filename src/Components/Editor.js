@@ -55,7 +55,7 @@ function Editor(props) {
                                 <InputGroup.Text id="basic-addon2" style={{ color: hexCode ?? '#ffffff' }}>
                                     <FontAwesomeIcon icon={['fas', 'fa-square']} />
                                 </InputGroup.Text>
-                                <Button onClick={() => drawBgColorImageFromWebUrl(canvasTag, uploadFile.src, hexCode)} title="click to apply background color">Apply</Button>
+                                <Button onClick={() => drawBgColorImageFromWebUrl(canvasTag, uploadFile.src, hexCode)} title="click to apply transparent background color">Apply</Button>
                             </InputGroup> : <></>}
                     </ButtonToolbar>
                 </Card.Body>
