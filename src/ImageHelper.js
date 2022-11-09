@@ -94,8 +94,28 @@ ImageHelper.prototype.tranparentToColor = function (color) {
     }
 };
 
+ImageHelper.prototype.colorToTranparent = function (color) {
+    for (var y = 0; y < this.getHeight(); y++) {
+        for (var x = 0; x < this.getWidth(); x++) {
+            let pixelColor = this.getRGBComponent(x, y);
+            if (pixelColor.r === color.r && pixelColor.g === color.g && pixelColor.b === color.b) {
+                this.setAlphaComponent(x, y, 0);
+            }
+        }
+    }
+};
+
 ImageHelper.prototype.getColorModel = function () {
     return this.colorModel;
+};
+
+ImageHelper.prototype.getRGBComponent = function (x, y) {
+    var start = ((y * this.getWidth()) + x) * 4;
+    return {
+        "r": this.imageData.data[start],
+        "g": this.imageData.data[start + 1],
+        "b": this.imageData.data[start + 2],
+    };
 };
 
 ImageHelper.prototype.getAlphaComponent = function (x, y) {

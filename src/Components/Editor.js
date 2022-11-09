@@ -30,9 +30,6 @@ function Editor(props) {
                                     <Button variant="dark" onClick={() => setUploadFile(null)} title="click to close file">
                                         <FontAwesomeIcon icon={['fas', 'fa-xmark']} />
                                     </Button>
-                                    <Button variant="secondary" onClick={() => drawTransparentImageFromWebUrl(canvasTag, uploadFile.src)} title="click to set background transparent">
-                                        <FontAwesomeIcon icon={['fas', 'fa-images']} />
-                                    </Button>
                                     <Button variant="info" onClick={() => downloadPng(canvasTag, uploadFile.file)} title="click to download PNG">
                                         <FontAwesomeIcon icon={['fas', 'fa-download']} />
                                     </Button>

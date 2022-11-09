@@ -71,16 +71,13 @@ export function drawTransparentImageFromWebUrl(canvas, sourceurl) {
 
 export function drawBgColorImageFromWebUrl(canvas, sourceurl, color) {
     const context = canvas.getContext('2d');
-
+    const url = canvas.toDataURL();
     context.clearRect(0, 0, canvas.width, canvas.height);
-    context.fillStyle = color;
-    context.fillRect(0, 0, canvas.width, canvas.height);
 
     var image = new ImageHelper();
 
-    image.load(sourceurl, function () {
-        image.setColorToAlpha(0, 0);
-        image.tranparentToColor(hexToRgb(color));
+    image.load(url, function () {
+        image.colorToTranparent(hexToRgb(color));
         image.draw(canvas,
             canvas.width / 2 - image.width / 2,
             canvas.height / 2 - image.height / 2
